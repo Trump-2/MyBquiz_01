@@ -1,0 +1,8 @@
+$file = "./front/$do.php";
+
+      // file_exist( ) 判斷檔案是否存在
+      if (file_exists($file)) {
+        include $file;
+      } else {
+        include "./front/main.php";
+      }
