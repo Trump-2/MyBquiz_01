@@ -49,7 +49,7 @@ include_once "./api/db.php";
 
       // $do = isset($_GET['page']) ? $_GET['page'] : 'main';
 
-      // 上面那行的簡寫，使用 nullish coalescing operator；因為 isset( ) 的變數跟 true 的值是一樣的
+      // 上面那行的簡寫，使用 nullish coalescing operator；因為 isset( ) 的變數跟條件為 true 時選擇的值是一樣的
       $do = $_GET['do'] ?? 'main';
       $file = "./front/$do.php";
 
@@ -59,7 +59,6 @@ include_once "./api/db.php";
       } else {
         include "./front/main.php";
       }
-
 
       // switch ($do) {
       //   case 'login':
@@ -121,9 +120,13 @@ include_once "./api/db.php";
       </div>
     </div>
     <div style="clear:both;"></div>
-    <div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
+    <<<<<<< HEAD <div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
       <span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom'] ?></span>
-    </div>
+      =======
+      <div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
+        <span class="t" style="line-height:123px;"></span>
+        >>>>>>> bbd490f8801e6016396f73daec01ed9d5bbcc70d
+      </div>
   </div>
 
 </body>
