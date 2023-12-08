@@ -1,0 +1,22 @@
+<?php
+include_once "db.php";
+// echo $_POST['total'];
+
+//取得資料表名稱
+$table = $_POST['table'];
+
+//將資料表名稱轉成首字大寫的資料表物件變數
+$DB = ${ucfirst($table)}; // ucfirst () 會將字串的首字母轉換為大寫
+
+
+//取得id為1的資料
+$data = $DB->find(1);
+
+//將資料中對應的欄位修改為post過來的值，注意因為這裡
+$data[$table] = $_POST[$table];
+
+
+
+//使用save更新至資料表
+$DB->save($data);
+to("../back.php?do=$table");
