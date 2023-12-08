@@ -32,8 +32,8 @@
 
           </td>
           <td>
-            <input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do ?>&id=<? $row['id'] ?>')"
-              value="更新圖片">
+            <input type="button"
+              onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do ?>&id=<?= $row['id'] ?>')" value="更新圖片">
           </td> <!-- 兩個 GET 參數要用 [ & ] 隔開 -->
         </tr>
         <?php

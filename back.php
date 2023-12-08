@@ -24,8 +24,11 @@ include_once "./api/db.php";
     </div>
   </div>
   <div id="main">
-    <a title="" href="?">
-      <div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div>
+    <?php
+    $title = $Title->find(['sh' => 1]);
+    ?>
+    <a title="<?= $title['text'] ?>" href="index.php">
+      <div class="ti" style="background:url('./img/<?= $title['img'] ?>'); background-size:cover;"></div>
       <!--標題-->
     </a>
     <div id="ms">

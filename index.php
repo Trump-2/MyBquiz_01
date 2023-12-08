@@ -25,7 +25,11 @@ include_once "./api/db.php";
   </div>
   <iframe style="display:none;" name="back" id="back"></iframe>
   <div id="main">
-    <a title="" href="./home_files/home.htm">
+    <?php
+    $title = $Title->find(['sh' => 1]);
+    ?>
+
+    <a title="$title['text']" href="index.php">
       <div class="ti" style="background:url('use/'); background-size:cover;"></div>
       <!--標題-->
     </a>
