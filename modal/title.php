@@ -1,4 +1,4 @@
-<h3>新增網站標題圖片<?= $_GET['table'] ?></h3>
+<h3>新增網站標題圖片</h3>
 <hr>
 <form action="./api/add.php" method="post" enctype="multipart/form-data">
   <table>
@@ -15,6 +15,7 @@
   </table>
   <div>
     <input type="hidden" name="table" value="<? $_GET['table'] ?>">
-    <input type="submit" value="新增"><input type="reset" value="重置">
+    <input type="submit" value="新增">
+    <input type="reset" value="重置">
   </div>
 </form>
