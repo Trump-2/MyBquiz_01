@@ -11,7 +11,12 @@
         </tr>
         <?php
 
-        $rows = $DB->all();
+        $total = $DB->count();
+        $div = 3;
+        $pages = ceil($total / $div);
+        $now = $_GET['p'] ?? 1;
+        $start = ($now - 1) * $div;
+        $rows = $DB->all(" limit $start, $div");
         foreach ($rows as $row) {
           # code...
 
@@ -40,6 +45,34 @@
         ?>
       </tbody>
     </table>
+
+
+    <div class="cent">
+      <?php
+      if ($now > 1) {
+        $prev = $now - 1;
+
+        // 這裡用 &lt 的 html entity 來代表 [ < ] 
+        // echo "<a href='?do=news&p=$prev'> &lt </a>";
+        echo "<a href='?do=$do&p=$prev'> < </a>";
+      }
+
+      for ($i = 1; $i <= $pages; $i++) {
+
+        $fontsize = ($now == $i) ? '24px' : '16px';
+
+        echo "<a href='?do=$do&p=$i' style='font-size:$fontsize'> $i </a>";
+      }
+
+      if ($now < $pages) {
+        $next = $now + 1;
+        // echo "<a href='do=news&p=$next'> &gt </a>"
+        echo "<a href='?do=$do&p=$next'> > </a>";
+      }
+
+      ?>
+    </div>
+
     <table style="margin-top:40px; width:70%;">
       <tbody>
         <tr>
