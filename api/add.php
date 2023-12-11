@@ -6,6 +6,11 @@ include_once "db.php";
 $DB = ${ucfirst($_POST['table'])};
 $table = $_POST['table'];
 
+switch ($table) {
+  case "admin":
+    unset($_POST['pw2']);
+    break;
+}
 // 
 
 
