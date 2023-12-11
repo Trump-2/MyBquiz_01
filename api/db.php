@@ -274,3 +274,12 @@ $Bottom = new DB('bottom');
 $Ad = new DB('ad');
 $Mvim = new DB('mvim');
 $Image = new DB('image');
+$News = new DB('news');
+
+
+// 看不太懂，聽重播
+if (isset($_GET['do'])) {
+  $DB = ${ucfirst($_GET['do'])};
+} else {
+  $DB = $Title;
+}
