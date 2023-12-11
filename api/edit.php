@@ -27,6 +27,7 @@ foreach ($_POST['id'] as $key => $id) {
 
     switch ($table) {
       case 'title':
+        // 因為 title 送過來的表單的 sh 欄位因為是單選，所以是一個值
         $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id)  ? 1 : 0;
         break;
       case "admin":
@@ -40,6 +41,7 @@ foreach ($_POST['id'] as $key => $id) {
         $row['sh'] = (isset($_POST['sh']) && in_array($id, $_POST['sh'])) ? 1 : 0;
         break;
       default:
+        // 表單送過來的 sh 欄位因為是多選，所以是陣列
         $row['sh'] = (isset($_POST['sh']) && in_array($id, $_POST['sh'])) ? 1 : 0;
     }
 
