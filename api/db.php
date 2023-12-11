@@ -276,6 +276,7 @@ $Mvim = new DB('mvim');
 $Image = new DB('image');
 $News = new DB('news');
 $Admin = new DB('admin');
+$Menu = new DB('menu');
 
 // 看不太懂，聽重播
 if (isset($_GET['do'])) {
