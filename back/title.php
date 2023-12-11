@@ -11,7 +11,8 @@
           <td></td>
         </tr>
         <?php
-        $rows = $Title->all();
+        $DB = ${ucfirst($do)};
+        $rows = $DB->all();
         foreach ($rows as $row) {
 
 
