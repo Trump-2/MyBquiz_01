@@ -1,5 +1,5 @@
 <?php
-switch ($$_GET['table']) {
+switch ($_GET['table']) {
   case 'title':
     echo "<h3>更新網站標題圖片</h3>";
 
@@ -19,7 +19,7 @@ switch ($$_GET['table']) {
     <tr>
 
       <?php
-      switch ($$_GET['table']) {
+      switch ($_GET['table']) {
         case 'title':
           echo "<td>標題區圖片</td>";
 
