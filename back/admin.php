@@ -18,13 +18,13 @@
         ?>
           <tr>
             <td>
-              <input type="text" name="acc[<?= $row['id'] ?>]" id="" style="width:90%" value=<?= $row['text'] ?>>
+              <input type="text" name="acc[<?= $row['id'] ?>]" id="" style="width:90%" value=<?= $row['acc'] ?>>
               <!-- 這裡用直接塞 id 的方式取代 input:hidden 帶 id 的方式， -->
 
               <!-- <input type="hidden" name="id[]" value=<? $row['text'] ?>> -->
             </td>
             <td>
-              <input type="password" name="pw[]" id="" value="<?= $row['id'] ?>">
+              <input type="password" name="pw[]" id="" value="<?= $row['pw'] ?>">
             </td>
             <td>
               <input type="checkbox" name="del[]" id="" value="<?= $row['id'] ?>">
