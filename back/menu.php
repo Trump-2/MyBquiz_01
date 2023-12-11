@@ -16,27 +16,28 @@
 
         $rows = $DB->all();
         foreach ($rows as $row) {
-          # code...
 
         ?>
         <tr>
           <td>
-            <input type="text" name="text[]" id="" value=<?= $row['text'] ?>>
-            <!-- 這裡用直接塞 id 的方式取代 input:hidden 帶 id 的方式， -->
-
+            <input type="text" name="text[]" value="<?= $row['text']; ?>">
           </td>
           <td>
-            <input type="text" name="href[]" id="" value=<?= $row['href'] ?>>
+            <input type="text" name="href[]" value="<?= $row['href']; ?>">
+          </td>
+          <td></td>
+          <td>
+            <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
           </td>
           <td>
-            <input type="checkbox" name="sh[]" id="" value="<?= $row['id'] ?>"
-              <?= ($row['sh'] == 1) ? 'checked' : '' ?>>
+            <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
           </td>
           <td>
-            <input type="checkbox" name="del[]" id="" value="<?= $row['id'] ?>">
+            <input type="button" value="編輯次選單"
+              onclick="op('#cover','#cvr','./modal/submenu.php?table=<?= $do ?>&id=<?= $row['id'] ?>')">
           </td>
         </tr>
-        <input type="hidden" name="id[]" value=<? $row['text'] ?>>
+        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
         <?php
         }
 

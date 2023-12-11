@@ -7,11 +7,6 @@ $DB = ${ucfirst($table)};
 
 unset($_POST['table']);
 
-switch ($table) {
-  case 'admin':
-    unset($_POST['pw2']);
-    break;
-}
 
 // 新增這段是因為更新動畫時，顯示和刪除功能不正常，因為更新動畫的頁面送來的表單沒有 $_POST['text']
 // if (isset($_POST['id'])) {
@@ -27,7 +22,7 @@ foreach ($_POST['id'] as $key => $id) {
     $row = $DB->find($id);
     if (isset($row['text'])) {
 
-      $row['text'] = $_POST['text']['$key'];
+      $row['text'] = $_POST['text'][$key];
     }
 
     switch ($table) {
@@ -40,8 +35,12 @@ foreach ($_POST['id'] as $key => $id) {
         break;
 
       case 'menu':
+        // 這裡沒跟上，重聽
+        $row['href'] = $_POST['href'][$key];
+        $row['sh'] = (isset($_POST['sh']) && in_array($id, $_POST['sh'])) ? 1 : 0;
         break;
       default:
+        $row['sh'] = (isset($_POST['sh']) && in_array($id, $_POST['sh'])) ? 1 : 0;
     }
 
     $DB->save($row);
