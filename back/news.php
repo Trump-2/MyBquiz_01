@@ -20,18 +20,20 @@
           # code...
 
         ?>
-          <tr>
-            <td>
-              <textarea type="text" name="text[<?= $row['id'] ?>]" id="" style="width:90%;height:60px;"><?= $row['text'] ?></textarea>
-              <!-- 這裡用直接塞 id 的方式取代 input:hidden 帶 id 的方式， -->
-            </td>
-            <td>
-              <input type="checkbox" name="sh[]" id="" value="<?= $row['id'] ?>" <?= ($row['sh'] == 1) ? 'checked' : '' ?>>
-            </td>
-            <td>
-              <input type="checkbox" name="del[]" id="" value="<?= $row['id'] ?>">
-            </td>
-          </tr>
+        <tr>
+          <td>
+            <textarea type="text" name="text[]" id="" style="width:90%;height:60px;"><?= $row['text'] ?></textarea>
+            <input type="hidden" name="id[]" value="<?= $row['id'] ?>">
+            <!-- 這裡用直接塞 id 的方式取代 input:hidden 帶 id 的方式， -->
+          </td>
+          <td>
+            <input type="checkbox" name="sh[]" id="" value="<?= $row['id'] ?>"
+              <?= ($row['sh'] == 1) ? 'checked' : '' ?>>
+          </td>
+          <td>
+            <input type="checkbox" name="del[]" id="" value="<?= $row['id'] ?>">
+          </td>
+        </tr>
         <?php
         }
 
@@ -70,7 +72,8 @@
         <tr>
           <input type="hidden" name="table" value="<?= $do ?>">
 
-          <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do ?>.php?table=<?= $do ?>')" value="新增最新消息資料">
+          <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do ?>.php?table=<?= $do ?>')"
+              value="新增最新消息資料">
           </td>
           <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
         </tr>

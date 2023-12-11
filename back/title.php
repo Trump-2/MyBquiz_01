@@ -17,25 +17,27 @@
 
 
         ?>
-          <tr>
-            <td width="45%">
-              <img src="./img/<?= $row['img'] ?>" style="width=300px; height:30px;" alt="" srcset="">
-            </td>
-            <td width="23%">
-              <input type="text" name="text[<?= $row['id'] ?>]" id="" style="width:90%" value=<?= $row['text'] ?>>
-              <!-- 這裡用直接塞 id 的方式取代 input:hidden 帶 id 的方式， -->
-            </td>
-            <td width="7%">
-              <input type="radio" name="sh" id="" value="<?= $row['id'] ?>" <?= ($row['sh'] == 1) ? 'checked' : '' ?>>
-            </td>
-            <td width="7%">
-              <input type="checkbox" name="del[]" id="" value="<?= $row['id'] ?>">
+        <tr>
+          <td width="45%">
+            <img src="./img/<?= $row['img'] ?>" style="width=300px; height:30px;" alt="" srcset="">
+          </td>
+          <td width="23%">
+            <input type="text" name="text[]" id="" style="width:90%" value=<?= $row['text'] ?>>
+            <input type="hidden" name="id[]" value="<?= $row['id'] ?>">
+            <!-- 這裡用直接塞 id 的方式取代 input:hidden 帶 id 的方式， -->
+          </td>
+          <td width="7%">
+            <input type="radio" name="sh" id="" value="<?= $row['id'] ?>" <?= ($row['sh'] == 1) ? 'checked' : '' ?>>
+          </td>
+          <td width="7%">
+            <input type="checkbox" name="del[]" id="" value="<?= $row['id'] ?>">
 
-            </td>
-            <td>
-              <input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do ?>&id=<?= $row['id'] ?>')" value="更新圖片">
-            </td> <!-- 兩個 GET 參數要用 [ & ] 隔開 -->
-          </tr>
+          </td>
+          <td>
+            <input type="button"
+              onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do ?>&id=<?= $row['id'] ?>')" value="更新圖片">
+          </td> <!-- 兩個 GET 參數要用 [ & ] 隔開 -->
+        </tr>
         <?php
         }
 
@@ -47,7 +49,8 @@
         <tr>
           <input type="hidden" name="table" value="<?= $do ?>">
 
-          <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do ?>.php?table=<?= $do ?>')" value="新增網站標題圖片">
+          <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do ?>.php?table=<?= $do ?>')"
+              value="新增網站標題圖片">
           </td>
           <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
         </tr>

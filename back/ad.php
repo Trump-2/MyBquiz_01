@@ -18,7 +18,8 @@
         ?>
           <tr>
             <td>
-              <input type="text" name="text[<?= $row['id'] ?>]" id="" style="width:90%" value=<?= $row['text'] ?>>
+              <input type="text" name="text[]" id="" style="width:90%" value=<?= $row['text'] ?>>
+              <input type="hidden" name="id[]" value="<?= $row['id'] ?>">
               <!-- 這裡用直接塞 id 的方式取代 input:hidden 帶 id 的方式， -->
             </td>
             <td>
