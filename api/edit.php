@@ -20,6 +20,8 @@ foreach ($_POST['id'] as $key => $id) {
     $DB->del($id);
   } else {
     $row = $DB->find($id);
+
+    // 這裡判斷 $row['text'] 是因為像是校園映像和動畫圖片管理這兩個功能沒有 text 欄位，而標題圖片功能則有
     if (isset($row['text'])) {
 
       $row['text'] = $_POST['text'][$key];
