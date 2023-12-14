@@ -278,7 +278,7 @@ $News = new DB('news');
 $Admin = new DB('admin');
 $Menu = new DB('menu');
 
-// 看不太懂，聽重播
+// 這裡因為不是每個分頁都會拿到 $_GET['do']，所以有這個判斷式，然後再把透過組合出來的資料表物件存到 $DB 中
 if (isset($_GET['do'])) {
   $DB = ${ucfirst($_GET['do'])};
 } else {

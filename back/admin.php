@@ -16,20 +16,20 @@
           # code...
 
         ?>
-          <tr>
-            <td>
-              <input type="text" name="acc[]" id="" style="width:90%" value="<?= $row['acc'] ?>">
-              <!-- 這裡用直接塞 id 的方式取代 input:hidden 帶 id 的方式， -->
+        <tr>
+          <td>
+            <input type="text" name="acc[]" id="" style="width:90%" value="<?= $row['acc'] ?>">
 
-              <input type="hidden" name="id[]" value="<? $row['text'] ?>">
-            </td>
-            <td>
-              <input type="password" name="pw[]" id="" value="<?= $row['pw'] ?>">
-            </td>
-            <td>
-              <input type="checkbox" name="del[]" id="" value="<?= $row['id'] ?>">
-            </td>
-          </tr>
+          </td>
+          <td>
+            <input type="password" name="pw[]" id="" value="<?= $row['pw'] ?>">
+          </td>
+          <td>
+            <input type="checkbox" name="del[]" id="" value="<?= $row['id'] ?>">
+          </td>
+        </tr>
+        <!-- 這裡用直接塞 id 的方式取代 input:hidden 帶 id 的方式， -->
+        <input type="hidden" name="id[]" value="<? $row['id'] ?>">
         <?php
         }
 
@@ -41,7 +41,8 @@
         <tr>
           <input type="hidden" name="table" value="<?= $do ?>">
 
-          <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do ?>.php?table=<?= $do ?>')" value="新增管理者帳號">
+          <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do ?>.php?table=<?= $do ?>')"
+              value="新增管理者帳號">
           </td>
           <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
         </tr>
