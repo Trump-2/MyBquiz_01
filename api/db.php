@@ -284,3 +284,15 @@ if (isset($_GET['do'])) {
 } else {
   $DB = $Title;
 }
+
+
+// $tables=array_keys(get_defined_vars());
+// /* dd($tables); */
+// if(isset($_GET['do'])){
+//     $key=ucfirst($_GET['do']);
+//     if(in_array($key,$tables)){
+//         $DB=$$key;
+//     }
+// }else{
+//     $DB=$Title;
+// }
