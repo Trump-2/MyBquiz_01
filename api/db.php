@@ -287,3 +287,9 @@ if (isset($_GET['do'])) {
 } else {
   $DB = $Title;
 }
+
+if (!isset($_SESSION['visited'])) {
+  // 利用 sql 語法把 total + 1；而不是先把資料撈出來再 + 1
+  $Total->q("update `total` set `total` = `total` + 1 where `id` = 1");
+  $_SESSION['visited'] = 1;
+}
