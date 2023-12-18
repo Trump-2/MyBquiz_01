@@ -1,1 +1,0 @@
-如果安裝 apache 時，有自動重開機，正常情況下 session 會存放到 tmp folder 下，但自動重開機的話會導致 session 抓步道那個 folder，這時到控制面板的 config 下的 php.ini 去做 session 儲存路徑的設定修改
