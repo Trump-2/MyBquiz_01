@@ -2,7 +2,8 @@
 
 include_once "./api/db.php";
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0040)http://127.0.0.1/test/exercise/collage/? -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -80,34 +81,66 @@ include_once "./api/db.php";
 
       <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
         <!--右邊-->
-        <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
+        <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+          onclick="lo('?do=login')">管理登入</button>
         <div style="width:89%; height:480px;" class="dbor">
           <span class="t botli">校園映象區</span>
-          <script>
-            var nowpage = 0,
-              num = 0;
+          <div class="cent" onclick="pp(1)"><img src="./material/up.jpg" alt=""></div>
+          <?php
 
-            function pp(x) {
-              var s, t;
-              if (x == 1 && nowpage - 1 >= 0) {
-                nowpage--;
-              }
-              if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
-                nowpage++;
-              }
-              $(".im").hide()
-              for (s = 0; s <= 2; s++) {
-                t = s * 1 + nowpage * 1;
-                $("#ssaa" + t).show()
-              }
+          $imgs = $Image->all(['sh' => 1]);
+
+          foreach ($imgs as $idx => $img) {
+          ?>
+          <div id="ssaa<?= $idx ?>" class="im cent">
+            <img src="./img/<?= $img['img'] ?>" alt=""
+              style="width:150px;height:103px;border:5px solid brown; margin:2px;">
+          </div>
+          <?php
+
+          }
+          ?>
+          <div class="cent" onclick="pp(2)"><img src="./material/dn.jpg" alt=""></div>
+          <script>
+          // 手動改成 1
+          var nowpage = 1,
+            // 資料庫中的圖片數
+            num = <?= $Image->count(['sh' => 1]) ?>;
+
+          // 圖片換業的程式碼
+          function pp(x) {
+            var s, t;
+
+            // 在 php 中邏輯運算子和運算式相鄰時，建議將運算式用 () 包起來；在 js 沒這個問題
+            if (x == 1 && nowpage - 1 >= 0) {
+              nowpage--;
             }
-            pp(1)
+            if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
+              nowpage++;
+            }
+
+            /*
+              nowpage num s t
+
+
+
+            */
+
+
+            $(".im").hide()
+            for (s = 0; s <= 2; s++) {
+              t = s * 1 + nowpage * 1;
+              $("#ssaa" + t).show() // => 例如：#ssaa1、#ssaa2、#ssaa3
+            }
+          }
+          pp(1)
           </script>
         </div>
       </div>
     </div>
     <div style="clear:both;"></div>
-    <div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
+    <div
+      style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
       <span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom'] ?></span>
     </div>
 
