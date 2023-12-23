@@ -43,6 +43,7 @@
               style="color:#000; font-size:13px; text-decoration:none;"><?= $main['text']; ?></a>
             <?php
 
+              // 確保主選單至少有一個次選單
               if ($Menu->count(['menu_id' => $main['id']]) > 0) {
                 echo "<div class='mw'>";
                 $subs = $Menu->all(['menu_id' => $main['id']]);
@@ -89,6 +90,7 @@
       <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
         <!--右邊-->
         <?php
+        // 讓已經登入的使用者不會看到管理登入的頁面和按鈕
         if (isset($_SESSION['login'])) {
         ?>
         <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"

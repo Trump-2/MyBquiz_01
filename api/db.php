@@ -289,7 +289,8 @@ if (isset($_GET['do'])) {
 }
 
 if (!isset($_SESSION['visited'])) {
-  // 利用 sql 語法把 total + 1；而不是先把資料撈出來再 + 1
+  // 利用 sql 語法直接把 total 這個欄位 + 1；而不是先把資料撈出來再 + 1
   $Total->q("update `total` set `total` = `total` + 1 where `id` = 1");
+  // 這裡的 1 沒有任何意義，只要不是 0 就好，只是要讓它存在而已；因為 0 在 isset() 會被判斷為 null
   $_SESSION['visited'] = 1;
 }
