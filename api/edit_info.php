@@ -12,7 +12,7 @@ $DB = ${ucfirst($table)}; // ucfirst () 會將字串的首字母轉換為大寫
 //取得id為1的資料
 $data = $DB->find(1);
 
-//將資料中對應的欄位修改為post過來的值，注意因為這裡
+//將資料中對應的欄位修改為post過來的值
 $data[$table] = $_POST[$table];
 
 
