@@ -22,9 +22,9 @@
             <img src="./img/<?= $row['img'] ?>" style="width=300px; height:30px;" alt="" srcset="">
           </td>
           <td width="23%">
-            <input type="text" name="text[]" id="" style="width:90%" value=<?= $row['text'] ?>>
-            <input type="hidden" name="id[]" value="<?= $row['id'] ?>">
             <!-- 這裡用直接塞 id 的方式取代 input:hidden 帶 id 的方式， -->
+            <input type="text" name="text[<?= $row['id'] ?>]" id="" style="width:90%" value=<?= $row['text'] ?>>
+            <!-- <input type="hidden" name="id[]" value="<?= $row['id'] ?>"> -->
           </td>
           <td width="7%">
             <input type="radio" name="sh" id="" value="<?= $row['id'] ?>" <?= ($row['sh'] == 1) ? 'checked' : '' ?>>
